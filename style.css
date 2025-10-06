@@ -1,0 +1,205 @@
+/* 1. BODY Background and Centering */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #548687; /* General App Background */
+    margin: 0;
+}
+
+/* 2. Container (The main box) */
+.container {
+    background: rgb(154, 177, 124);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+h1 { color: #c58888; margin-bottom: 20px; }
+
+/* 3. Page Switching Classes */
+.game-page {
+    transition: opacity 0.5s;
+    width: 100%;
+}
+
+.game-page.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.game-page.visible {
+    display: block;
+    opacity: 1;
+}
+
+/* === PAGE-SPECIFIC STYLES (DIFFERENT BACKGROUNDS) === */
+
+/* A. START/SETTINGS PAGE Background (Page 1) */
+#page-start {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: hsl(261, 16%, 46%); /* Halka Peela */
+}
+
+/* B. GAME BOARD PAGE Background (Page 2) */
+#page-game {
+    padding-top: 10px;
+    border-radius: 8px;
+    background-color: #7aad7e; /* Halka Hara */
+}
+
+/* === SHARED STYLES === */
+
+/* Scoreboard */
+.score-board {
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
+    padding: 10px;
+    border: 1px solid #899c8a; 
+    border-radius: 5px;
+    background-color: #6c8154;
+}
+
+/* Controls (Inputs and Selects) */
+.controls label {
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 0.9em;
+}
+
+.controls input[type="text"], .controls select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    box-sizing: border-box;
+    border: 1px solid #586591;
+    border-radius: 4px;
+}
+
+/* Start Game Button */
+#btnStartGame {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: #548687;
+    color: rgb(173, 146, 146);
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Back Button */
+#btnBackToSettings {
+    margin-top: 15px;
+    background-color: #091111;
+    color: rgb(172, 84, 84);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Board Styling */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    margin: 20px auto;
+    width: 310px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cell {
+    background-color: #84cc32; /* Cells ka white background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 5px;
+    user-select: none;
+}
+
+.cell:hover { background-color: #c58f8f; }
+
+/* Player Symbols Colors */
+.cell.player-x { color: #f44336; }
+.cell.player-o { color: #2196F3; }
+
+/* Status and Win Styling */
+.status {
+    font-size: 1.2em;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #4d8040;
+    border-radius: 5px;
+}
+
+/* Countdown/Toss Style */
+.status.toss-active {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #FF9800;
+    background-color: #af7d2b;
+}
+
+/* Winning Cell Highlight */
+.cell.win {
+    background-color: #ffeb3b !important;
+    color: #000 !important;
+    font-weight: bold;
+    animation: pulse 0.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from { opacity: 1; }
+    to { opacity: 0.8; }
+}
+
+/* Overlay Styling */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.overlay.visible { display: flex; }
+
+.overlay-content {
+    background: rgb(134, 104, 104);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+#resultText { font-size: 2em; color: #333; margin-bottom: 20px; }
+
+#btnClose {
+    background-color: #2196F3;
+    color: rgb(55, 25, 221);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}

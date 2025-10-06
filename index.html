@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="hadan.json"/>
+</head>
+<body>
+    <main class="container">
+        <h1>Tic Tac Toe 2026</h1>
+        <div class="score-board">
+            <span id="p1-score">P1 Wins: 0</span> | 
+            <span id="p2-score">P2 Wins: 0</span> | 
+            <span id="draws">Draws: 0</span>
+        </div>
+        
+        <section id="page-start" class="game-page visible"> 
+            <div class="controls">
+                <label>
+                    Mode:
+                    <select id="mode">
+                        <option value="pvp">2 Players</option>
+                        <option value="pvc">Vs Computer</option>
+                    </select>
+                </label>
+
+                <label>
+                    Player 1 Name:
+                    <input type="text" id="player1" value="Player 1" />
+                </label>
+                <label>
+                    Player 2 Name:
+                    <input type="text" id="player2" value="Player 2" />
+                </label>
+
+                <label id="symbol-label">
+                    Your symbol:
+                    <select id="symbol">
+                        <option value="X">X</option>
+                        <option value="O">O</option>
+                    </select>
+                </label>
+
+                <button id="btnStartGame">Continue / Start Game</button>
+            </div>
+        </section>
+
+        <section id="page-game" class="game-page hidden">
+            <section id="board" class="board"></section>
+            <div class="status-row">
+                <div id="status" class="status"></div>
+            </div>
+            <button id="btnBackToSettings">Change Players/Mode</button>
+        </section>
+
+    </main>
+
+    <div id="overlay" class="overlay">
+        <div class="overlay-content">
+            <h2 id="resultText"></h2>
+            <button id="btnClose">Play Another Round</button>
+        </div>
+    </div>
+<audio id="moveSound" src="click.wav"></audio> 
+
+    <audio id="moveSound" src="move.mp3"></audio>
+    <audio id="winSound" src="win.mp3"></audio>
+    <audio id="startSound" src="game_start.mp3"></audio>
+    <audio id="tossSound" src="toss.mp3"></audio>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
